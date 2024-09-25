@@ -28,6 +28,7 @@
 
         public Pokemon Add(Pokemon newPokemon)
         {
+            newPokemon.Validate();
             newPokemon.Id = _nextID++;
             _pokemons.Add(newPokemon);
             return newPokemon;
@@ -46,6 +47,7 @@
 
         public Pokemon? Update(int id, Pokemon updates)
         {
+            updates.Validate();
             Pokemon? foundPokemon = GetByID(id);
             if (foundPokemon == null)
             {
